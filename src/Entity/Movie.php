@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MovieRepository")
@@ -24,7 +25,7 @@ class Movie
     private $title;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $year;
 
@@ -88,6 +89,13 @@ class Movie
      */
     private $statut;
 
+    /**
+     * @var string
+     * @Assert\NotBlank(message="Veuillez remplir ce Champ")
+     * @Assert\Type("string")
+     */
+    private $fieldName;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -110,7 +118,7 @@ class Movie
         return $this;
     }
 
-    public function getYear(): ?int
+    public function getYear(): ?string
     {
         return $this->year;
     }
@@ -278,5 +286,21 @@ class Movie
         $this->statut = $statut;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFieldName(): ?string
+    {
+        return $this->fieldName;
+    }
+
+    /**
+     * @param string $fieldName
+     */
+    public function setFieldName(string $fieldName): void
+    {
+        $this->fieldName = $fieldName;
     }
 }

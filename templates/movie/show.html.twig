@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie{% endblock %}
+
+{% block body %}
+    <h1>Movie</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ movie.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ movie.title }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ movie.year }}</td>
+            </tr>
+            <tr>
+                <th>Runtime</th>
+                <td>{{ movie.runtime }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ movie.genre }}</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>{{ movie.director }}</td>
+            </tr>
+            <tr>
+                <th>Actors</th>
+                <td>{{ movie.actors }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>{{ movie.resume }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ movie.country }}</td>
+            </tr>
+            <tr>
+                <th>Poster</th>
+                <td>{{ movie.poster }}</td>
+            </tr>
+            <tr>
+                <th>ImdbRating</th>
+                <td>{{ movie.imdbRating }}</td>
+            </tr>
+            <tr>
+                <th>MyCritic</th>
+                <td>{{ movie.myCritic }}</td>
+            </tr>
+            <tr>
+                <th>MyRating</th>
+                <td>{{ movie.myRating }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ movie.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('movie_index') }}">back to list</a>
+
+    <a href="{{ path('movie_edit', {'id': movie.id}) }}">edit</a>
+
+    {{ include('movie/_delete_form.html.twig') }}
+{% endblock %}

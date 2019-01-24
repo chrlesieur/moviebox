@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="projet navbar-brand" href="{{ path('civilStatus_show') }}">Projet <span>I/O</span></a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
+        <ul class="navbar-nav  mr-auto mt-2 mt-lg-0 "></ul>
+        <ul class="navbar-nav">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="mr-3">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-dark dropdown-toggle nav-link" data-toggle="dropdown">
+                            {{ app.user.lastName }} {{ app.user.firstName }}
+                        </button>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ path('password-change') }}"><i class="fas fa-key"></i>
+                                Modifier le mot de passe</a>
+                            <a class="dropdown-item" href="{{ path('self-update-profile') }}"><i
+                                        class="fas fa-user-edit"></i>Modifier mes informations</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="{{ path('app_logout') }}" class="btn btn-outline-dark logout nav-link"><i
+                                class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{{ path('app_login') }}" class="btn btn-outline-dark logout nav-link"><i
+                                class="fas fa-sign-out-alt"></i> Connexion</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
