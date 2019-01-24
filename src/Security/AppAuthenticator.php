@@ -85,7 +85,7 @@ class AppAuthenticator extends AbstractFormLoginAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-         return new RedirectResponse($this->router->generate('home'));
+         return new RedirectResponse($this->router->generate('movie_index'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
