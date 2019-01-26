@@ -3,11 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Movie;
+use App\Entity\MovieSearch;
+use App\Form\MovieSearchType;
 use App\Form\MovieType;
 use App\Repository\MovieRepository;
+use App\Service\MovieApiRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -27,16 +31,21 @@ class MovieController extends AbstractController
 
     /**
      * @Route("/new", name="movie_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param SessionInterface $session
+     * @return Response
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SessionInterface $session): Response
     {
         $movie = new Movie();
         $form = $this->createForm(MovieType::class, $movie);
         $form->handleRequest($request);
+        $movieSearch = $session->get('movieSearch');
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $movie->addUser($user = $this->getUser());
-
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($movie);
             $entityManager->flush();
@@ -47,6 +56,7 @@ class MovieController extends AbstractController
         return $this->render('movie/new.html.twig', [
             'movie' => $movie,
             'form' => $form->createView(),
+            'movieSearch' => $movieSearch,
         ]);
     }
 
@@ -94,5 +104,17 @@ class MovieController extends AbstractController
         }
 
         return $this->redirectToRoute('movie_index');
+    }
+
+    /**
+     * @Route("/details/{title}")
+     * @param string $title
+     * @param MovieApiRequest $movieApiRequest
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getDetails(string $title, MovieApiRequest $movieApiRequest): Response
+    {
+        $details = $movieApiRequest->getDetailsApi($title);
+        return $this->json($details);
     }
 }
