@@ -50,7 +50,7 @@ class Movie
     private $actors;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=1000)
      */
     private $resume;
 
@@ -89,12 +89,7 @@ class Movie
      */
     private $statut;
 
-    /**
-     * @var string
-     * @Assert\NotBlank(message="Veuillez remplir ce Champ")
-     * @Assert\Type("string")
-     */
-    private $fieldName;
+
 
     public function __construct()
     {

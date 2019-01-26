@@ -1,15 +1,21 @@
 {% extends 'layoutHome.html.twig' %}
 {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 
-{% block title %}Rechercher un film{% endblock %}
+{% block title %}Résultat de votre recherche{% endblock %}
 
 {% block body %}
     <div class="row justify-content-center">
-    <h1>Rechercher un film</h1>
+    <h1>Résultat</h1>
     </div>
     <div class="container">
+        <p>Ma recherche :</p>
+        <p id="movie_search_movieSearchByTitle">{{ app.session.get('movieSearch').movieSearchByTitle }}</p>
     {{ include('movie/_form.html.twig') }}
 
-    <a href="{{ path('movie_index') }}">Retour</a>
+    <a href="{{ path('search_movie') }}">Nouvelle recherche</a>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('requestMovieApi') }}
 {% endblock %}
