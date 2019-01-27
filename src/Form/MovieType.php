@@ -18,24 +18,15 @@ class MovieType extends AbstractType
     {
         $builder->add('title', TextType::class,[
                 'label' => 'Titre du Film']);
-        $builder->get('title')->resetViewTransformers();
         $builder->add('year', NumberType::class, ['label' => 'Année de sortie']);
-        $builder->get('year')->resetViewTransformers();
         $builder->add('runtime', TextType::class, ['label' => 'Durée']);
-        $builder->get('runtime')->resetViewTransformers();
         $builder->add('genre', TextType::class, ['label' => 'Genre']);
-        $builder->get('genre')->resetViewTransformers();
         $builder->add('director', TextType::class, ['label' => 'Réalisateur']);
-        $builder->get('director')->resetViewTransformers();
         $builder->add('actors', TextType::class, ['label' => 'Acteurs principaux']);
-        $builder->get('actors')->resetViewTransformers();
         $builder->add('resume', TextareaType::class, ['label' => 'Synopsis']);
-        $builder->get('resume')->resetViewTransformers();
         $builder->add('country', TextType::class, ['label' => 'Pays']);
-        $builder->get('country')->resetViewTransformers();
         $builder->add('poster', HiddenType::class, ['label' => 'Affiche du film']);
         $builder->add('imdbRating', TextType::class, ['label' => 'Note moyenne des internautes']);
-        $builder->get('imdbRating')->resetViewTransformers();
         $builder->add('myCritic', TextareaType::class,
                 ['label' =>'Votre critique du film',
                     'required' => false]);
