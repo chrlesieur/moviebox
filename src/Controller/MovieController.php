@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Movie;
 use App\Entity\MovieSearch;
+use App\Entity\User;
 use App\Form\MovieSearchType;
 use App\Form\MovieType;
 use App\Repository\MovieRepository;
@@ -21,13 +22,19 @@ class MovieController extends AbstractController
 {
     /**
      * @Route("/", name="movie_index", methods={"GET"})
+     * @return Response
      */
-    public function index(MovieRepository $movieRepository): Response
+    public function index(): Response
     {
-        return $this->render('movie/index.html.twig', [
-            'movies' => $movieRepository->findAll(),
-        ]);
-    }
+        $user = $this->getUser();
+        $movies = $user->getMovies();
+            
+            return $this->render('movie/index.html.twig', [
+                'movies' => $movies,
+                'user' => $user
+            ]);
+        }
+
 
     /**
      * @Route("/new", name="movie_new", methods={"GET","POST"})

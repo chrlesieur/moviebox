@@ -283,19 +283,4 @@ class Movie
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getFieldName(): ?string
-    {
-        return $this->fieldName;
-    }
-
-    /**
-     * @param string $fieldName
-     */
-    public function setFieldName(string $fieldName): void
-    {
-        $this->fieldName = $fieldName;
-    }
 }
