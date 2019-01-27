@@ -1,0 +1,29 @@
+{% extends 'layoutHome.html.twig' %}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-lower">Contactez-nous</span>
+                        <hr/>
+                    </h2>
+                    <div>
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <div class="form-group row">
+                            <div class="col-sm-9"></div>
+                            <div class="col-sm-3">
+                                <input type="submit" value="Envoyer" class="btn btn-primary"/>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

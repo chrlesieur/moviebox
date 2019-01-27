@@ -1,13 +1,10 @@
 let search = document.getElementById('movie_search_movieSearchByTitle');
-//let submit = document.getElementById('movie_search_submit');
+
 window.addEventListener('load', function (e) {
     getDetailsMovie();
 
 });
 
-//submit.addEventListener('submit', function (e) {
- //       getDetailsMovie();
-//});
 
 function getDetailsMovie() {
     let title = document.getElementById('movie_search_movieSearchByTitle').innerText;
@@ -52,7 +49,3 @@ function setDetails(details) {
     rating.value = details['Ratings'][0]['Value'];
 }
 
-//let save = document.getElementById('save');
-//save.addEventListener('submit', function (e) {
-//    search.value = details['Title'];
-//});
