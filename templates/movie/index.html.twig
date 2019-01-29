@@ -3,55 +3,42 @@
 {% block title %}Movie index{% endblock %}
 
 {% block body %}
-    <h1>Movie index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Year</th>
-                <th>Runtime</th>
-                <th>Genre</th>
-                <th>Director</th>
-                <th>Actors</th>
-                <th>Resume</th>
-                <th>Country</th>
-                <th>Poster</th>
-                <th>ImdbRating</th>
-                <th>MyCritic</th>
-                <th>MyRating</th>
-                <th>Statut</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="container">
+    <div class="row justify-content-center pt-5 pb-5">
+    <h1 class="title">Ma sélection</h1>
+    </div>
+{% if not movies is empty %}
+<div class="row justify-content-around">
         {% for movie in movies %}
-            <tr>
-                <td>{{ movie.title }}</td>
-                <td>{{ movie.year }}</td>
-                <td>{{ movie.runtime }}</td>
-                <td>{{ movie.genre }}</td>
-                <td>{{ movie.director }}</td>
-                <td>{{ movie.actors }}</td>
-                <td>{{ movie.resume }}</td>
-                <td>{{ movie.country }}</td>
-                <td><img src="{{ movie.poster }}" alt="affiche du film"></td>
-                <td>{{ movie.imdbRating }}</td>
-                <td>{{ movie.myCritic }}</td>
-                <td>{{ movie.myRating }}</td>
-                <td>{{ movie.statut }}</td>
-                <td>
-                    <a href="{{ path('movie_show', {'id': movie.id}) }}">show</a>
-                    <a href="{{ path('movie_edit', {'id': movie.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="15">Aucun résultat</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            <div class="card col-5 mt-3" style="background-color: #4D4B50;">
+                <img src="{{ movie.poster }}" class="card-img-top" alt="affiche du film de {{ movie.title }}">
+                <div class="card-body">
+                    <h5 class="card-title title">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.year }}</p>
+                    <p class="card-text">{{ movie.runtime }}</p>
+                    <p class="card-text">{{ movie.director }}</p>
+                    <p class="card-text">{{ movie.actors }}</p>
+                    <p class="card-text">{{ movie.resume }}</p>
+                    <p class="card-text">{{ movie.country }}</p>
+                    <p class="card-text">{{ movie.imdbRating }}</p>
+                    <p class="card-text">{{ movie.myCritic }}</p>
+                    <p class="card-text">{{ movie.myRating }}</p>
+                    <p class="card-text">{{ movie.statut }}</p>
+                    <a href="{{ path('movie_edit', {'id': movie.id}) }}" class="card-link">Mettre à jour</a>
+                    {{ include('movie/_delete_form.html.twig') }}
+                </div>
+            </div>
 
+        {% endfor %}
+</div>
+        {% else %}
+            <div class="row justify-content-center">
+                <p colspan="15">Aucun résultat</p>
+            </div>
+
+{% endif %}
+        <div class="row justify-content-center">
     <a href="{{ path('search_movie') }}">Rechercher un nouveau film</a>
+        </div>
+    </div>
 {% endblock %}

@@ -1,36 +1,33 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="projet navbar-brand" href="{{ path('civilStatus_show') }}">Projet <span>I/O</span></a>
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
-        <ul class="navbar-nav  mr-auto mt-2 mt-lg-0 "></ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
+            <li class="nav-item pl-5">
+                <a class="nav-link  {% if app.request.get('_route') == 'app_register' %} active {% endif %}" href="{{ path('app_register') }}">S'inscrire</a>
+            </li>
+            <li>
+                <a class="navbar-brand pl-5" href="{{ path('app_login') }}">Se connecter</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <li class="nav-item pl-5">
+                <a class="nav-link  {% if app.request.get('_route') == 'contact' %} active {% endif %}" href="{{ path('contact') }}">Nous contacter</a>
+            </li>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <li class="mr-3">
-                    <div class="dropdown">
-                        <button class="btn btn-outline-dark dropdown-toggle nav-link" data-toggle="dropdown">
-                            {{ app.user.lastName }} {{ app.user.firstName }}
-                        </button>
-
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ path('password-change') }}"><i class="fas fa-key"></i>
-                                Modifier le mot de passe</a>
-                            <a class="dropdown-item" href="{{ path('self-update-profile') }}"><i
-                                        class="fas fa-user-edit"></i>Modifier mes informations</a>
-                        </div>
-                    </div>
+                <li class=" title nav-item pl-5 pt-2">
+                    Bienvenue {{ app.user.firstName }} {{ app.user.lastName }}
+                </li>
+                <li class="nav-item pl-5">
+                    <a class="nav-link  {% if app.request.get('_route') == 'movie_new' %} active {% endif %}" href="{{ path('search_movie') }}">Recherche de film</a>
+                </li>
+                <li class="nav-item pl-5">
+                    <a class="nav-link  {% if app.request.get('_route') == 'movie_index' %} active {% endif %}" href="{{ path('movie_index') }}">Ma Moviebox</a>
                 </li>
 
-                <li>
-                    <a href="{{ path('app_logout') }}" class="btn btn-outline-dark logout nav-link"><i
-                                class="fas fa-sign-out-alt"></i> Déconnexion</a>
-                </li>
-            {% else %}
-                <li>
-                    <a href="{{ path('app_login') }}" class="btn btn-outline-dark logout nav-link"><i
-                                class="fas fa-sign-out-alt"></i> Connexion</a>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item pl-5">
+                    <a class="nav-link {% if app.request.get('_route') == 'user_index' %} active {% endif %}" href="{{ path('user_index') }}">Gestion des utilisateurs</a>
                 </li>
             {% endif %}
         </ul>

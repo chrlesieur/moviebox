@@ -35,7 +35,8 @@ class MovieType extends AbstractType
                     'required' => false]);
         $builder->add('statut', ChoiceType::class,
                 ['label' => 'Statut',
-                    'choices' => ['A voir !' => true, 'Dejà vu' => false]]);
+                    'placeholder' => 'Faites votre choix !',
+                    'choices' => ['A voir !' => 'A voir !', 'Dejà vu' => 'Déja Vu']]);
         $builder->getForm();
     }
 

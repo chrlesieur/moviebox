@@ -4,12 +4,13 @@
 {% block title %}Rechercher un film{% endblock %}
 
 {% block body %}
-    <div class="row justify-content-center">
-        <h1>Rechercher un film</h1>
+    <div class="row justify-content-center pt-5">
+        <h1 class="title">Rechercher un film</h1>
     </div>
-    <div class="container">
+    <div class="container pt-5">
         {{ include('search_movie/formMovieSearch.html.twig') }}
-
+<div class="row justify-content-center pt-5">
         <a href="{{ path('movie_index') }}">Retour</a>
+    </div>
     </div>
 {% endblock %}
