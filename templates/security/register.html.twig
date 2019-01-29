@@ -1,13 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutHomePage.html.twig' %}
 {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-
-    <h1 class="bg-primary">Créer votre compte !</h1>
     <div class="container">
-
+        <div class="row justify-content-center">
+        <h1 class="title">Créer votre compte !</h1>
+        </div>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <div class="text-center">

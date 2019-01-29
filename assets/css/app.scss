@@ -1,4 +1,12 @@
 body {
-    background-color: blueviolet;
+background-image: url("https://technext.github.io/charcoal/img/charcoal.jpg") ;
+}
+.title, h2, .home, p, td, th, .col-form-label {
+  color: ghostwhite;
+  font-family: 'Permanent Marker', cursive;
+}
+.movies {
+  background-color: #4C4C49;
 }
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');

@@ -1,20 +1,41 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutHomePage.html.twig' %}
 
 {% block title %}Moviebox{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Moviebox</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/chris/PhpstormProjects/moviebox/src/Controller/HomePageController.php'|file_link(0) }}">src/Controller/HomePageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/chris/PhpstormProjects/moviebox/templates/home_page/index.html.twig'|file_link(0) }}">templates/home_page/index.html.twig</a></code></li>
-    </ul>
+<div class="container-fluid">
+<div class="row justify-content-center pt-5">
+    <h1 class="title">Moviebox, l'application pour cinéphiles !</h1>
+</div>
+    <div class="row justify-content-center pt-5 ml-5">
+        <div class="media col-8">
+            <img src=https://m.media-amazon.com/images/M/MV5BYTE4ODEwZDUtNDFjOC00NjAxLWEzYTQtYTI1NGVmZmFlNjdiL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg" alt="affiche du film">
+            <div class="media-body home pl-5">
+                <h5 class="mt-0 home">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+        <p class="col-4 pl-5"><img src=https://m.media-amazon.com/images/M/MV5BMTg5YWIyMWUtZDY5My00Zjc1LTljOTctYmI0MWRmY2M2NmRkXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" alt="affiche du film"></p>
+    </div>
+    <div class="row justify-content-center pl-5">
+        <div class="media col-8">
+            <img src=https://m.media-amazon.com/images/M/MV5BZDhlZTYxOTYtYTk3Ny00ZDljLTk3ZmItZTcxZWU5YTIyYmFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg" alt="affiche du film">
+            <div class="media-body home pl-5">
+                <h5 class="mt-0 home">Media heading</h5>
+                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+        <p class="col-4 pl-5"><img src=https://m.media-amazon.com/images/M/MV5BMmNlYzRiNDctZWNhMi00MzI4LThkZTctMTUzMmZkMmFmNThmXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="affiche du film"></p>
+    </div>
+    <div class="row justify-content-center pl-5">
+        <div class="media col-8">
+            <img src=https://m.media-amazon.com/images/M/MV5BZTNkZmU0ZWQtZjQzMy00YTNmLWFmN2MtZGNkMmU1OThmMGYwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="affiche du film">
+            <div class="media-body home pl-5">
+                <h5 class="mt-0 home">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+        </div>
+        <p class="col-4 pl-5"><img src=https://m.media-amazon.com/images/M/MV5BYjhmMGMxZDYtMTkyNy00YWVmLTgyYmUtYTU3ZjcwNTBjN2I1XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg" alt="affiche du film"></p>
+    </div>
 </div>
 {% endblock %}

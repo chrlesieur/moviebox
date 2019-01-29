@@ -1,4 +1,6 @@
 {{ form_start(form2) }}
     {{ form_widget(form2) }}
-<button class="btn" id="movie_search_submit">{{ button_label|default('Rechercher') }}</button>
+<div class="row justify-content-center">
+<button type="button" class="btn-primary" id="movie_search_submit">{{ button_label|default('Rechercher') }}</button>
+</div>
 {{ form_end(form2) }}
