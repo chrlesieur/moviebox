@@ -22,52 +22,7 @@ class Movie
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $title;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $year;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $runtime;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $genre;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $director;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $actors;
-
-    /**
-     * @ORM\Column(type="text", length=1000)
-     */
-    private $resume;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $country;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $poster;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $imdbRating;
+    private $idMovie;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -91,6 +46,8 @@ class Movie
 
 
 
+
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -101,125 +58,6 @@ class Movie
         return $this->id;
     }
 
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    public function getYear(): ?string
-    {
-        return $this->year;
-    }
-
-    public function setYear(int $year): self
-    {
-        $this->year = $year;
-
-        return $this;
-    }
-
-    public function getRuntime(): ?string
-    {
-        return $this->runtime;
-    }
-
-    public function setRuntime(string $runtime): self
-    {
-        $this->runtime = $runtime;
-
-        return $this;
-    }
-
-    public function getGenre(): ?string
-    {
-        return $this->genre;
-    }
-
-    public function setGenre(string $genre): self
-    {
-        $this->genre = $genre;
-
-        return $this;
-    }
-
-    public function getDirector(): ?string
-    {
-        return $this->director;
-    }
-
-    public function setDirector(string $director): self
-    {
-        $this->director = $director;
-
-        return $this;
-    }
-
-    public function getActors(): ?string
-    {
-        return $this->actors;
-    }
-
-    public function setActors(string $actors): self
-    {
-        $this->actors = $actors;
-
-        return $this;
-    }
-
-    public function getResume(): ?string
-    {
-        return $this->resume;
-    }
-
-    public function setResume(string $resume): self
-    {
-        $this->resume = $resume;
-
-        return $this;
-    }
-
-    public function getCountry(): ?string
-    {
-        return $this->country;
-    }
-
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    public function getPoster(): ?string
-    {
-        return $this->poster;
-    }
-
-    public function setPoster(?string $poster): self
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
-
-    public function getImdbRating(): ?string
-    {
-        return $this->imdbRating;
-    }
-
-    public function setImdbRating(string $imdbRating): self
-    {
-        $this->imdbRating = $imdbRating;
-
-        return $this;
-    }
 
     public function getMyCritic(): ?string
     {
@@ -282,5 +120,22 @@ class Movie
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIdMovie()
+    {
+        return $this->idMovie;
+    }
+
+    /**
+     * @param mixed $idMovie
+     */
+    public function setIdMovie($idMovie): void
+    {
+        $this->idMovie = $idMovie;
+    }
+
 
 }

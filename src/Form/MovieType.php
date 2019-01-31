@@ -16,17 +16,7 @@ class MovieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title', TextType::class,[
-                'label' => 'Titre du Film']);
-        $builder->add('year', NumberType::class, ['label' => 'Année de sortie']);
-        $builder->add('runtime', TextType::class, ['label' => 'Durée']);
-        $builder->add('genre', TextType::class, ['label' => 'Genre']);
-        $builder->add('director', TextType::class, ['label' => 'Réalisateur']);
-        $builder->add('actors', TextType::class, ['label' => 'Acteurs principaux']);
-        $builder->add('resume', TextareaType::class, ['label' => 'Synopsis']);
-        $builder->add('country', TextType::class, ['label' => 'Pays']);
-        $builder->add('poster', HiddenType::class, ['label' => 'Affiche du film']);
-        $builder->add('imdbRating', TextType::class, ['label' => 'Note moyenne des internautes']);
+
         $builder->add('myCritic', TextareaType::class,
                 ['label' =>'Votre critique du film',
                     'required' => false]);
