@@ -42,17 +42,21 @@ class MovieController extends AbstractController
      * @param SessionInterface $session
      * @return Response
      */
-    public function new(Request $request, SessionInterface $session): Response
+    public function new(Request $request, SessionInterface $session, MovieApiRequest $movieApiRequest): Response
     {
         $movie = new Movie();
         $form = $this->createForm(MovieType::class, $movie);
         $form->handleRequest($request);
-        $movieSearch = $session->get('movieSearch');
 
+
+        $searchMovie = $session->get('movieSearch');
+        $title = $searchMovie->getmovieSearchByTitle();
+        $details = $movieApiRequest->getDetailsApi($title);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
             $movie->addUser($user = $this->getUser());
+            $movie->setIdMovie($details['imdbID']);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($movie);
             $entityManager->flush();
@@ -63,7 +67,7 @@ class MovieController extends AbstractController
         return $this->render('movie/new.html.twig', [
             'movie' => $movie,
             'form' => $form->createView(),
-            'movieSearch' => $movieSearch,
+            'movieSearch' => $searchMovie,
         ]);
     }
 

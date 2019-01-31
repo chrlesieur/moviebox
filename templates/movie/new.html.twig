@@ -8,11 +8,36 @@
     <h1 class="title">Résultat</h1>
     </div>
     <div class="container">
-        <p>Ma recherche :</p>
-        <p id="movie_search_movieSearchByTitle">{{ app.session.get('movieSearch').movieSearchByTitle }}</p>
-    {{ include('movie/_form.html.twig') }}
+        <div class="row justify-content-center">
+        <p>Ma recherche : </p>
+            <p id="movie_search_movieSearchByTitle">{{  app.session.get('movieSearch').movieSearchByTitle }}</p>
+    </div>
+        <div class="row justify-content-around">
+            <div class="card col-5 mt-3" style="background-color: #4D4B50;">
 
-    <a href="{{ path('search_movie') }}">Nouvelle recherche</a>
+                <div class="card-body">
+                    <h5 class="card-title title" id="movie_title"></h5>
+                    <img id="movie_img" src="" class="card-img-top" alt="affiche du film de">
+                    <p class="card-text" id="movie_year"></p>
+                    <p class="card-text" id="movie_runtime"></p>
+                    <p class="card-text" id="movie_genre"></p>
+                    <p class="card-text" id="movie_director"></p>
+                    <p class="card-text" id="movie_actors"></p>
+                    <p class="card-text" id="movie_resume"></p>
+                    <p class="card-text" id="movie_country"></p>
+                    <p class="card-text" id="movie_imdbRating"></p>
+                </div>
+        </div>
+        <div class="col-6">
+            {{ include('movie/_form.html.twig') }}
+            <a href="{{ path('search_movie') }}">Nouvelle recherche</a>
+        </div>
+        </div>
+
+
+
+
+
     </div>
 {% endblock %}
 {% block javascripts %}

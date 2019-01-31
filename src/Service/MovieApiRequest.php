@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 
 class MovieApiRequest
 {
-    public function getDetailsApi($title)
+    public function getDetailsApi( string $title)
     {
         $client = new Client();
         $res = $client->request('GET', 'http://www.omdbapi.com/?t='.$title.'&apikey=54fcec65');
