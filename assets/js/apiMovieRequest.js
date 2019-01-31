@@ -27,7 +27,6 @@ function getDetailsMovie() {
     }
 }
 function setDetails(details) {
-console.log(details);
     let movieTitle = document.getElementById('movie_title');
         movieTitle.innerText = details['Title'];
     let myImg = document.getElementById('movie_img');

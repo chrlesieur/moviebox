@@ -11,19 +11,19 @@
 <div class="row justify-content-around">
         {% for movie in movies %}
             <div class="card col-5 mt-3" style="background-color: #4D4B50;">
-                <img src="{{ movie.poster }}" class="card-img-top" alt="affiche du film de {{ movie.title }}">
+                <img src="{{ details.Poster }}" class="card-img-top" alt="affiche du film">
                 <div class="card-body">
-                    <h5 class="card-title title">{{ movie.title }}</h5>
-                    <p class="card-text">{{ movie.year }}</p>
-                    <p class="card-text">{{ movie.runtime }}</p>
-                    <p class="card-text">{{ movie.director }}</p>
-                    <p class="card-text">{{ movie.actors }}</p>
-                    <p class="card-text">{{ movie.resume }}</p>
-                    <p class="card-text">{{ movie.country }}</p>
-                    <p class="card-text">{{ movie.imdbRating }}</p>
-                    <p class="card-text">{{ movie.myCritic }}</p>
-                    <p class="card-text">{{ movie.myRating }}</p>
-                    <p class="card-text">{{ movie.statut }}</p>
+                    <h5 class="card-title title">{{ details.Title}}</h5>
+                    <p class="card-text movie_year">{{ details.Year }}</p>
+                    <p class="card-text movie_runtime">{{ details.Runtime }}</p>
+                    <p class="card-text movie_director">{{ details.Director }}</p>
+                    <p class="card-text movie_actors">{{ details.Actors }}</p>
+                    <p class="card-text movie_resume">{{ details.Plot }}</p>
+                    <p class="card-text movie_country">{{ details.Country }}</p>
+                    <p class="card-text movie_imdbRating">{{ details.Ratings.0.Value }}</p>
+                    <p class="card-text movie_myCritic">{{ movie.myCritic }}</p>
+                    <p class="card-text movie_myRating">{{ movie.myRating }}</p>
+                    <p class="card-text movie_statut">{{ movie.statut }}</p>
                     <a href="{{ path('movie_edit', {'id': movie.id}) }}" class="card-link">Mettre à jour</a>
                     {{ include('movie/_delete_form.html.twig') }}
                 </div>

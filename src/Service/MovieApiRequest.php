@@ -20,4 +20,12 @@ class MovieApiRequest
         return $data = json_decode($res->getBody(), true);
 
     }
+    public function getDetailsbyId(string $id)
+    {
+        $client = new Client();
+        $res = $client->request('GET', 'http://www.omdbapi.com/?i='.$id.'&apikey=54fcec65');
+
+        return $data = json_decode($res->getBody(), true);
+    }
+
 }

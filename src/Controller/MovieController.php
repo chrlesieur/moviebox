@@ -24,14 +24,21 @@ class MovieController extends AbstractController
      * @Route("/", name="movie_index", methods={"GET"})
      * @return Response
      */
-    public function index(): Response
+    public function index(MovieRepository $movieRepository, MovieApiRequest $movieApiRequest): Response
     {
         $user = $this->getUser();
-        $movies = $user->getMovies();
-            
+        $movies = $movieRepository->findBy(['id'=>$user]);
+
+        $details=[];
+        foreach ($movies as $movie) {
+            $idMovie = $movie->getIdMovie();
+            $details = $movieApiRequest->getDetailsbyId($idMovie);
+
+        }
+
             return $this->render('movie/index.html.twig', [
                 'movies' => $movies,
-                'user' => $user
+                'details' => $details
             ]);
         }
 
